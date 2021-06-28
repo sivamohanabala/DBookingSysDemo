@@ -1,0 +1,21 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div>
+<table>
+    <tr>
+        <td>
+            @using (Html.BeginForm("Track", "BookingStatus"))
+            {
+
+                @Html.Label("Enter Booking ID");
+                @Html.TextBox("txtBookId")
+                <button>Track</button>
+            }
+        </td>
+    </tr>
+</table>
+
+</div>

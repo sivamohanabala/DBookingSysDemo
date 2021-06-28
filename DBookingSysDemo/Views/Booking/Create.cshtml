@@ -1,0 +1,85 @@
+﻿@model DBookingSysDemo.Models.BookingDetail
+
+@{
+    ViewData["Title"] = "Create";
+    // var data = (Customer)ViewBag.userinfo;
+
+}
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+<h1>Edit</h1>
+
+@{
+    ViewBag.Data = HttpContextAccessor.HttpContext.Session.GetString("UID");
+}
+<h1>Create</h1>
+
+<h4>BookingDetail</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            @*<div class="form-group">
+                    <label name="UserName" class="control-label" title="UserName"></label>
+                    <input name="UserId" value="@((ViewBag.userinfo as ICollection<Customer>).First().UserName)" class="form-control" />
+
+                </div>*@
+            <input name="UserId" value="@ViewBag.Data" class="form-control" />
+            <div class="form-group">
+                <label asp-for="PickUp" class="control-label"></label>
+                <input asp-for="PickUp" class="form-control" />
+                <span asp-validation-for="PickUp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Package" class="control-label"></label>
+                <input asp-for="Package" class="form-control" />
+                <span asp-validation-for="Package" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label name="Address" class="control-label" title="Address"></label>
+                <input value="@((ViewBag.userinfo as ICollection<Customer>).First().Address)" name="Address" class="form-control" />
+
+            </div>
+            <div class="form-group">
+                <label name="City" class="control-label" title="City"></label>
+                <input value="@((ViewBag.userinfo as ICollection<Customer>).First().City)" name="City" class="form-control" />
+
+            </div>
+
+            <div class="form-group">
+                <label asp-for="BTime" class="control-label"></label>
+                <input asp-for="BTime" class="form-control" />
+                <span asp-validation-for="BTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Status" class="control-label"></label>
+                <input asp-for="Status" class="form-control" />
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+
+                <label asp-for="DExecutive" class="control-label"></label>
+                <select asp-for="DExecutive" class="form-control" asp-items="ViewBag.ExecutiveName"></select>
+                <span asp-validation-for="DExecutive" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

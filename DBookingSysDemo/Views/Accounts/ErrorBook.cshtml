@@ -1,0 +1,17 @@
+﻿
+
+    @using Microsoft.AspNetCore.Http
+    @inject IHttpContextAccessor HttpContextAccessor
+
+        
+
+@{
+    ViewBag.Data = HttpContextAccessor.HttpContext.Session.GetString("UserName");
+}
+
+<h1 class="text-danger">Error.</h1>
+<h1 class="text-danger">
+    @ViewBag.Data  <br />
+
+    <h2>Account is not yet activated. </h2>
+</h1>
