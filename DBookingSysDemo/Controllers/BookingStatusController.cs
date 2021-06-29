@@ -145,7 +145,7 @@ namespace DBookingSysDemo.Controllers
             //PutAsJsonAsync
             res.EnsureSuccessStatusCode();
 
-            return RedirectToAction("Index");
+            return View("Index");
             
         }
 
@@ -189,7 +189,7 @@ namespace DBookingSysDemo.Controllers
           
             response.EnsureSuccessStatusCode();
 
-            return RedirectToAction("Index");
+            return View("Index");
         }
 
         public async Task<IActionResult> BookingHistory(int id)
